@@ -8,7 +8,7 @@ RUN apk -U upgrade && \
   chmod +x gohttpserver
 
 FROM casjaysdev/alpine:latest
-ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')" 
+ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')"
 LABEL \
   org.label-schema.name="gohttpserver" \
   org.label-schema.description="Alpine based image with gohttpserver." \
@@ -21,11 +21,11 @@ LABEL \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="CasjaysDev" \
-  maintainer="CasjaysDev <docker-admin@casjaysdev.com>" 
+  maintainer="CasjaysDev <docker-admin@casjaysdev.com>"
 
-COPY --from=builder /app/gohttpserver/gohttpserver /usr/local/bin/gohttpserver 
+COPY --from=builder /app/gohttpserver/gohttpserver /usr/local/bin/gohttpserver
 COPY ./data/. /data/
-COPY ./config/. /config/
+#COPY ./config/. /config/
 COPY ./bin/. /usr/local/bin/
 
 WORKDIR /data/htdocs
