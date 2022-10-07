@@ -32,5 +32,5 @@ WORKDIR /data/htdocs
 
 EXPOSE 19065
 
-HEALTHCHECK CMD [ "/usr/local/bin/entrypoint-gohttpserver.sh", "healthcheck" ]
+HEALTHCHECK --interval=15s --timeout=3s CMD [ "/usr/local/bin/entrypoint-gohttpserver.sh", "healthcheck" ]
 ENTRYPOINT [ "/usr/local/bin/entrypoint-gohttpserver.sh"]
